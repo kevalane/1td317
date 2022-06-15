@@ -7,6 +7,7 @@ int lasEttTal();
 char lasOp();
 void ordna(int &num1, int &num2);
 int berakna(int num1, int num2);
+void skrivResultat(int res);
 
 int main() {
     skrivInfo();
@@ -80,4 +81,8 @@ int berakna(int num1, int num2, int op) {
         if (op == 'k') returnValue = num1*num1;
     }  
     return returnValue;
+}
+
+void skrivResultat(int res) {
+    cout << "Resultat: " << res << endl;   
 }
