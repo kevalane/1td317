@@ -6,6 +6,7 @@ void skrivInfo();
 int lasEttTal();
 char lasOp();
 void ordna(int &num1, int &num2);
+int berakna(int num1, int num2);
 
 int main() {
     skrivInfo();
@@ -63,4 +64,20 @@ void ordna(int &num1, int &num2) {
         num1 = num2;
         num2 = temp;
     }
+}
+
+int berakna(int num1, int num2, int op) {
+    int returnValue;
+    if (num1 != num2) {
+        for (int i = num1; i <= num2; i++) {
+            if (op == 'a') returnValue += i;
+            if (op == 'm') returnValue *= i;
+            if (op == 'k') returnValue += i*i;
+        }
+    } else {
+        if (op == 'a') returnValue = num1;
+        if (op == 'm') returnValue = num1;
+        if (op == 'k') returnValue = num1*num1;
+    }  
+    return returnValue;
 }
