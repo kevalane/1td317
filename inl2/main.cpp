@@ -21,7 +21,7 @@ int main() {
         // Get start and end time
         cout << "Starttid? ";
         cin >> startHours >> startMinutes >> startSeconds;
-        cout << "Sluttid? ";
+        cout << "Måltid? ";
         cin >> endHours >> endMinutes >> endSeconds;
 
         int startTime = convertToSeconds(startHours, startMinutes, startSeconds);
@@ -33,7 +33,7 @@ int main() {
             bestDiff = diff;
             bestStartNumber = startNumber;
         }
-        
+
         // increment and repeat
         numberOfRunners++;
         cout << "Startnummer? ";
