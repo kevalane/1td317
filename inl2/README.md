@@ -22,3 +22,7 @@ Create a program doing the following:
 7. cin with keyboard, cout on screen
 8. No validation of input required
 9. Assume there is only one winner.
+
+## Test Report 06/15/2022
+
+All tests #1-9 executed & passed.
