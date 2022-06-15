@@ -5,18 +5,18 @@ using namespace std;
 void skrivInfo();
 int lasEttTal();
 char lasOp();
+void ordna(int &num1, int &num2);
 
 int main() {
     skrivInfo();
 
     // take user input
     int tal1 = lasEttTal();
-    cout << "Tal1: " << tal1 << endl;
     int tal2 = lasEttTal();
-    cout << "Tal2: " << tal2 << endl;
     char op = lasOp();
-    cout << op << endl;
 
+    ordna(tal1, tal2);
+    
     return 0;
 }
 
@@ -55,4 +55,12 @@ char lasOp() {
         cin >> temp;
     }
     return temp;
+}
+
+void ordna(int &num1, int &num2) {
+    if (num1 > num2) {
+        int temp = num1;
+        num1 = num2;
+        num2 = temp;
+    }
 }
