@@ -3,10 +3,11 @@
 using namespace std;
 
 void skrivInfo();
-void lasEttTal();
+int lasEttTal();
 
 int main() {
-    skrivInfo();
+    int num = lasEttTal();
+    cout << num << endl;
     return 0;
 }
 
@@ -21,6 +22,15 @@ void skrivInfo() {
     cout << "E.g.: 4, 1 & m => 1*2*3*4 = 24 skrivs ut" << endl;
 }
 
-void lasEttTal() {
-    
+int lasEttTal() {
+    int temp;
+    cout << "Skriv ett heltal: ";
+    cin >> temp;
+    while (cin.fail()) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
+        cout << "Försök igen. Skriv ett heltal: ";
+        cin >> temp;
+    }
+    return temp;
 }
