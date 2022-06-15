@@ -5,6 +5,11 @@ using namespace std;
 void printEnding(int number_of_runners, int winner_number, int winner_time);
 int convertToSeconds(int hours, int minutes, int seconds);
 
+/**
+ * @brief Program to decide a marathon-runner winner given start and endtimes for all participants.
+ * 
+ * @return int 0 upon termination;
+ */
 int main() {
     int startHours, startMinutes, startSeconds;
     int endHours, endMinutes, endSeconds;
