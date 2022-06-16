@@ -10,7 +10,7 @@ long long int berakna(int num1, int num2, char op);
 void skrivResultat(int res);
 
 int main() {
-    skrivInfo();
+    // skrivInfo();
 
     // take user input
     int tal1 = lasEttTal();
@@ -69,7 +69,8 @@ void ordna(int &num1, int &num2) {
 }
 
 long long int berakna(int num1, int num2, char op) {
-    long long int returnValue;
+    long long int returnValue = 0;
+    if (op == 'm') returnValue++;
     if (num1 != num2) {
         for (int i = num1; i <= num2; i++) {
             if (op == 'a') returnValue += i;
@@ -80,7 +81,7 @@ long long int berakna(int num1, int num2, char op) {
         if (op == 'a') returnValue = num1;
         if (op == 'm') returnValue = num1;
         if (op == 'k') returnValue = num1*num1;
-    }  
+    }
     return returnValue;
 }
 
