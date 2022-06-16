@@ -52,7 +52,7 @@ int main()
 void berakna_histogram_abs(string &text, int freq[ANTAL_BOKSTAVER], int &used) {
     for (int i = 0; i < text.size(); i++) {
         if ((int) text[i] > 90) text[i] = text[i] - 32; // convert all to capital letters
-        freq[ (int) text[i] - 65]++; // shift index 65, A = 0, B = 1 etc
+        if ((int) text[i] - 65 < ANTAL_BOKSTAVER) freq[ (int) text[i] - 65]++; // shift index 65, A = 0, B = 1 etc
         if ((int) text[i] >= 65 && (int) text[i] <= 90) used++;
     }
 }
