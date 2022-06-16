@@ -53,7 +53,7 @@ const double TOLK_HJALP[ANTAL_SPRAK][ANTAL_BOKSTAVER]=
 // denna skrevs i A-uppgiften och kan klippas in här
 void berakna_histogram_abs(string &text, int freq[ANTAL_BOKSTAVER], int &used);
 // Funktionen abs_till_rel
-
+void abs_till_rel(int freq[ANTAL_BOKSTAVER], double rel_freq[ANTAL_BOKSTAVER], int used);
 // Funktionen plotta_histogram_rel
 
 // Funktionen tolkning
@@ -67,8 +67,16 @@ void berakna_histogram_abs(string &text, int freq[ANTAL_BOKSTAVER], int &used);
 
 int main()
 {
-
-  return 0;
+    int freq[ANTAL_BOKSTAVER] = {0};
+    double rel_freq[ANTAL_BOKSTAVER] = {0.0};
+    int used = 0;
+    string text = "ekoageagfKOAEKFIPAEGNersjbnasohjrnagros";
+    berakna_histogram_abs(text, freq, used);
+    abs_till_rel(freq, rel_freq, used);
+    for (int i = 0; i < ANTAL_BOKSTAVER; i++) {
+        cout << (int) i + 65 << ": " << rel_freq[i] << "%" << endl;
+    }
+    return 0;
 }
 
 //--------------------------------------------------------
@@ -88,6 +96,12 @@ void berakna_histogram_abs(string &text, int freq[ANTAL_BOKSTAVER], int &used) {
             freq[index]++; 
             used++;
         }
+    }
+}
+
+void abs_till_rel(int freq[ANTAL_BOKSTAVER], double rel_freq[ANTAL_BOKSTAVER], int used) {
+    for (int i = 0; i < ANTAL_BOKSTAVER; i++) {
+        rel_freq[i] = (double) freq[i]/ (double) used * 100.0;
     }
 }
 
