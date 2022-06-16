@@ -33,6 +33,8 @@ int main()
     string text;
 
     // Läs in en rad med text från tangentbordet
+    cout << "Skriv in din text: " << endl;
+    getline(cin, text);
 
     // Anropa funktionen berakna_histogram_abs som beräknar histogrammet
     // och antalet bokstäver.  
