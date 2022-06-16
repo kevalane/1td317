@@ -51,7 +51,7 @@ const double TOLK_HJALP[ANTAL_SPRAK][ANTAL_BOKSTAVER]=
 
 // Funktionen berakna_histogram_abs
 // denna skrevs i A-uppgiften och kan klippas in här
-
+void berakna_histogram_abs(string &text, int freq[ANTAL_BOKSTAVER], int &used);
 // Funktionen abs_till_rel
 
 // Funktionen plotta_histogram_rel
@@ -73,7 +73,23 @@ int main()
 
 //--------------------------------------------------------
 // Funktionsdefinitioner:
-
+/**
+ * @brief Counts frequencies of chars in a given string.
+ * 
+ * @param text string to count freq on
+ * @param freq array to store values of freq
+ * @param used number of used letters
+ */
+void berakna_histogram_abs(string &text, int freq[ANTAL_BOKSTAVER], int &used) {
+    for (int i = 0; i < text.size(); i++) {
+        if ((int) text[i] > 90) text[i] = text[i] - 32; // convert all to capital letters
+        int index = (int) text[i] - 65; // shift index 65, A = 0, B = 1 etc
+        if (index < ANTAL_BOKSTAVER && index >= 0) {
+            freq[index]++; 
+            used++;
+        }
+    }
+}
 
 
 
