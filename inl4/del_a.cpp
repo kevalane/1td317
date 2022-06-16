@@ -52,9 +52,9 @@ int main()
 void berakna_histogram_abs(string &text, int freq[ANTAL_BOKSTAVER], int &used) {
     for (int i = 0; i < text.size(); i++) {
         if ((int) text[i] > 90) text[i] = text[i] - 32; // convert all to capital letters
-        int index = (int) text[i] - 65;
+        int index = (int) text[i] - 65; // shift index 65, A = 0, B = 1 etc
         if (index < ANTAL_BOKSTAVER && index >= 0) {
-            freq[index]++; // shift index 65, A = 0, B = 1 etc
+            freq[index]++; 
             used++;
         }
     }
@@ -70,3 +70,9 @@ void skriv_histogram_abs(int freq[ANTAL_BOKSTAVER], int used) {
 }
 
 // Redovisning av uppgiften i ord. 
+/*
+Först tas en rad text som input. Valde getline för att även få med flera ord (efter mellanslag)
+Sedan anropas beräkna histo, där strängen gås igenom char för char, och dess ASCII mappas mot ett index
+enligt tabell. Fixar även så att gemener blir versaler. Sparar i array freq och inkrementerar referensvariabel used.
+Sedan skrivs det ut, och den metoden är rätt straight forward utan vidare elaboration.
+*/
