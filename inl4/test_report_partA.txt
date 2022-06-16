@@ -80,6 +80,41 @@ Z: 0
 # TEST CASE 3 #
 ###############
 
+Ge en rad med text: 
+Denna rad innehåller ett å!
+
+Resultat för bokstäverna A-Z
+
+Totala antalet bokstäver: 20
+Bokstavsfördelning:
+
+A: 2
+B: 0
+C: 0
+D: 2
+E: 4
+F: 0
+G: 0
+H: 1
+I: 1
+J: 0
+K: 0
+L: 2
+M: 0
+N: 4
+O: 0
+P: 0
+Q: 0
+R: 2
+S: 0
+T: 2
+U: 0
+V: 0
+W: 0
+X: 0
+Y: 0
+Z: 0
+
 ###############
 # TEST CASE 4 #
 ###############
