@@ -1,3 +1,18 @@
+QUESTIONS
+### What are the benefits of using functions instead of all code being 
+inside the int main() {}?
+
+Yeah, definately. Makes the code easier to read, easier to debug, 
+easier to refactor. Avoids code duplicity too.
+
+### Why not always use reference parameters?
+
+Using return values (and not reference parameters) makes the code more 
+readable (in my opinion, at least). If I pass reference variables into 
+a function, I am not sure if they will be changed or not, making the 
+implementation of the rest of my code more difficult. Return values are 
+more "obvious" and frankly "safer."
+
 # TEST CASE 1
 Skriv ett heltal: 3
 Skriv ett heltal: 5
