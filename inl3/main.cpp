@@ -10,7 +10,7 @@ long long int berakna(int num1, int num2, char op);
 void skrivResultat(int res);
 
 int main() {
-    // skrivInfo();
+    skrivInfo();
 
     // take user input
     int tal1 = lasEttTal();
@@ -23,6 +23,10 @@ int main() {
     return 0;
 }
 
+/**
+ * @brief Function to tell the user about the program.
+ * 
+ */
 void skrivInfo() {
     cout << "Detta program utför beräkningar på alla heltal mellan två från användaren inmatade heltal." << endl;
     cout << "1. Användaren efterfrågas att mata in två heltal." << endl;
@@ -34,6 +38,11 @@ void skrivInfo() {
     cout << "E.g.: 4, 1 & m => 1*2*3*4 = 24 skrivs ut\n" << endl;
 }
 
+/**
+ * @brief Takes an int as input from user with input validation.
+ * 
+ * @return int, the int the user chose
+ */
 int lasEttTal() {
     int temp;
     cout << "Skriv ett heltal: ";
@@ -47,6 +56,11 @@ int lasEttTal() {
     return temp;
 }
 
+/**
+ * @brief Takes a char as input from user, with input validation
+ * 
+ * @return char that the user chose
+ */
 char lasOp() {
     char temp;
     cout << "Skriv operation (a/m/k): ";
@@ -60,6 +74,12 @@ char lasOp() {
     return temp;
 }
 
+/**
+ * @brief Takes two numbers and orders them.
+ * E.g., num1=5 num2=-2 makes num1=-2 and num2=5
+ * @param num1 the first number to sort, int
+ * @param num2 the second number to sort, int
+ */
 void ordna(int &num1, int &num2) {
     if (num1 > num2) {
         int temp = num1;
@@ -68,6 +88,14 @@ void ordna(int &num1, int &num2) {
     }
 }
 
+/**
+ * @brief calculates in accordance with chosen operation
+ * 
+ * @param num1 lower limit of range, int
+ * @param num2 upper limit of range, int
+ * @param op the operation to carry out
+ * @return long long int returnValue from operation
+ */
 long long int berakna(int num1, int num2, char op) {
     long long int returnValue = 0;
     if (op == 'm') returnValue++;
@@ -85,6 +113,11 @@ long long int berakna(int num1, int num2, char op) {
     return returnValue;
 }
 
+/**
+ * @brief Prints result to user
+ * 
+ * @param res the result to print
+ */
 void skrivResultat(int res) {
     cout << "Resultat: " << res << endl;   
 }
