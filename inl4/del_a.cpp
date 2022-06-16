@@ -20,9 +20,9 @@ const int ANTAL_BOKSTAVER = 26;  //A-Z
 // Använd exakt de funktionsnamn som finns nedan
 
 // Funktionen berakna_histogram_abs
-void berakna_histogram_abs(string &text, int freq[ANTAL_BOKSTAVER]);
+void berakna_histogram_abs(string &text, int freq[ANTAL_BOKSTAVER], int &used);
 // Funktionen skriv_histogram_abs
-void skriv_histogram_abs(int freq[ANTAL_BOKSTAVER]);
+void skriv_histogram_abs(int freq[ANTAL_BOKSTAVER], int used);
 //--------------------------------------------------------
 // Huvudprogram:
 
@@ -31,31 +31,36 @@ int main()
     // Deklarera variabler
     int freq[ANTAL_BOKSTAVER] = {0};
     string text;
+    int used;
 
     // Läs in en rad med text från tangentbordet
-    cout << "Skriv in din text: " << endl;
+    cout << "Ge en rad med text: " << endl;
     getline(cin, text);
 
     // Anropa funktionen berakna_histogram_abs som beräknar histogrammet
     // och antalet bokstäver.  
-    berakna_histogram_abs(text, freq);
+    berakna_histogram_abs(text, freq, used);
 
     // Anropa funktionen skriv_histogram_abs som skriver ut histogrammet
-    skriv_histogram_abs(freq);
+    skriv_histogram_abs(freq, used);
 
     return 0;
 }
 
 //--------------------------------------------------------
 // Funktionsdefinitioner:
-void berakna_histogram_abs(string &text, int freq[ANTAL_BOKSTAVER]) {
+void berakna_histogram_abs(string &text, int freq[ANTAL_BOKSTAVER], int &used) {
     for (int i = 0; i < text.size(); i++) {
         if ((int) text[i] > 90) text[i] = text[i] - 32; // convert all to capital letters
         freq[ (int) text[i] - 65]++; // shift index 65, A = 0, B = 1 etc
+        used++;
     }
 }
 
-void skriv_histogram_abs(int freq[ANTAL_BOKSTAVER]) {
+void skriv_histogram_abs(int freq[ANTAL_BOKSTAVER], int used) {
+    cout << "\nResultat för bokstäverna A-Z\n" << endl;
+    cout << "Totala antalet bokstäver: " << used << endl;
+    cout << "Bokstavsfördelning:\n" << endl;
     for (int i = 0; i < ANTAL_BOKSTAVER; ++i) {
         cout << (char) (i + 65) << ": " << freq[i] << endl;
     }
