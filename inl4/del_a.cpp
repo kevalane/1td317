@@ -22,35 +22,26 @@ const int ANTAL_BOKSTAVER = 26;  //A-Z
 // Funktionen berakna_histogram_abs
 void berakna_histogram_abs(string &text, int freq[ANTAL_BOKSTAVER]);
 // Funktionen skriv_histogram_abs
-
+void skriv_histogram_abs(int freq[ANTAL_BOKSTAVER]);
 //--------------------------------------------------------
 // Huvudprogram:
 
 int main()
 {
-  // Deklarera variabler
-  
+    // Deklarera variabler
+    int freq[ANTAL_BOKSTAVER] = {0};
+    string text;
 
-  // Läs in en rad med text från tangentbordet
-  int freq[ANTAL_BOKSTAVER];
-  string text = "aaaaaaaabbbbbbbb";
-  for (int i = 0; i < ANTAL_BOKSTAVER; ++i) {
-    freq[i] = 0;
-  }
-  berakna_histogram_abs(text, freq);
-  for (int i = 0; i < ANTAL_BOKSTAVER; ++i) {
-    cout << (char) (i + 65) << ": " << freq[i] << endl;
-  }
+    // Läs in en rad med text från tangentbordet
 
-  // Anropa funktionen berakna_histogram_abs som beräknar histogrammet
-  // och antalet bokstäver.  
-  
- 
+    // Anropa funktionen berakna_histogram_abs som beräknar histogrammet
+    // och antalet bokstäver.  
+    berakna_histogram_abs(text, freq);
 
-  // Anropa funktionen skriv_histogram_abs som skriver ut histogrammet
-  
+    // Anropa funktionen skriv_histogram_abs som skriver ut histogrammet
+    skriv_histogram_abs(freq);
 
-  return 0;
+    return 0;
 }
 
 //--------------------------------------------------------
@@ -62,5 +53,10 @@ void berakna_histogram_abs(string &text, int freq[ANTAL_BOKSTAVER]) {
     }
 }
 
+void skriv_histogram_abs(int freq[ANTAL_BOKSTAVER]) {
+    for (int i = 0; i < ANTAL_BOKSTAVER; ++i) {
+        cout << (char) (i + 65) << ": " << freq[i] << endl;
+    }
+}
 
 // Redovisning av uppgiften i ord. 
