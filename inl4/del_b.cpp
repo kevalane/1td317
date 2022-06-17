@@ -59,7 +59,7 @@ void plotta_histogram_rel(double rel_freq[ANTAL_BOKSTAVER]);
 // Funktionen tolkning
 void tolkning(double rel_freq[ANTAL_BOKSTAVER]);
 // Funktionen namn_pa_fil
-
+string namn_pa_fil();
 // Funktionen inlasning
 
 //--------------------------------------------------------
@@ -78,6 +78,7 @@ int main()
     }
     plotta_histogram_rel(rel_freq);
     tolkning(rel_freq);
+    cout << namn_pa_fil() << endl;
     return 0;
 }
 
@@ -132,6 +133,15 @@ void tolkning(double rel_freq[ANTAL_BOKSTAVER]) {
         }
     }
     cout << "LANG: " << min_sum_index << " VAR: " << min_sum << endl;
+}
+
+string namn_pa_fil() {
+    string name;
+    string extension = ".txt";
+    cout << "Skriv in ett filnamn: " << endl;
+    getline(cin, name);
+    if (!equal(extension.rbegin(), extension.rend(), name.rbegin())) name += extension; // check ending
+    return name;
 }
 // -------------------------------------------------------
 // Rapport om uppgiften
