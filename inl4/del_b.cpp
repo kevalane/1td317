@@ -61,16 +61,28 @@ void tolkning(double rel_freq[ANTAL_BOKSTAVER]);
 // Funktionen namn_pa_fil
 string namn_pa_fil();
 // Funktionen inlasning
-
+string inlasning(ifstream &fin);
 //--------------------------------------------------------
 // Huvudprogram:
 
 int main()
 {
+    // vars
     int freq[ANTAL_BOKSTAVER] = {0};
     double rel_freq[ANTAL_BOKSTAVER] = {0.0};
     int used = 0;
-    string text = "ekoageagfKOAEKFIPAEGNersjbnasohjrnagros";
+    string file_name;
+    string text;
+
+    // get file and read file
+    file_name = namn_pa_fil();
+    ifstream fin(file_name.c_str());
+    if (!fin) {
+        cout << "Error opening file." << endl;
+        exit(EXIT_FAILURE);
+    }
+    text = inlasning(fin);
+
     berakna_histogram_abs(text, freq, used);
     abs_till_rel(freq, rel_freq, used);
     for (int i = 0; i < ANTAL_BOKSTAVER; i++) {
@@ -142,6 +154,17 @@ string namn_pa_fil() {
     getline(cin, name);
     if (!equal(extension.rbegin(), extension.rend(), name.rbegin())) name += extension; // check ending
     return name;
+}
+
+string inlasning(ifstream &fin) {
+    string text = "";
+    char c;
+    fin.get(c);
+    while(!fin.eof()) {
+        text.push_back(c);
+        fin.get(c);
+    }
+    return text;
 }
 // -------------------------------------------------------
 // Rapport om uppgiften
