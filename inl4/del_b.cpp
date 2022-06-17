@@ -110,12 +110,24 @@ void berakna_histogram_abs(string &text, int freq[ANTAL_BOKSTAVER], int &used) {
     }
 }
 
+/**
+ * @brief Converts frequency to relative frequency
+ * 
+ * @param freq array of freq
+ * @param rel_freq array of rel freq added my this function
+ * @param used the number of used letters
+ */
 void abs_till_rel(int freq[ANTAL_BOKSTAVER], double rel_freq[ANTAL_BOKSTAVER], int used) {
     for (int i = 0; i < ANTAL_BOKSTAVER; i++) {
         rel_freq[i] = (double) freq[i]/ (double) used * 100.0;
     }
 }
 
+/**
+ * @brief Used to plot the histogram given relative frequencies.
+ * 
+ * @param rel_freq array of doubles containing relative frequencies.
+ */
 void plotta_histogram_rel(double rel_freq[ANTAL_BOKSTAVER]) {
     cout << "\nBokstavsfördelning:\n" << endl;
     for (int i = 0; i < ANTAL_BOKSTAVER; i++) {
@@ -126,6 +138,12 @@ void plotta_histogram_rel(double rel_freq[ANTAL_BOKSTAVER]) {
     }
 }
 
+/**
+ * @brief Calculates square error and determines a strings language.
+ * 
+ * @param rel_freq relative frequencies for letters occurrance.
+ * @param used number of used letters
+ */
 void tolkning(double rel_freq[ANTAL_BOKSTAVER], int used) {
     double sq_sum[ANTAL_SPRAK] = {0.0};
     double min_sum = numeric_limits<double>::max();
@@ -168,6 +186,11 @@ void tolkning(double rel_freq[ANTAL_BOKSTAVER], int used) {
     }
 }
 
+/**
+ * @brief Gets user input of a string value (a file name)
+ * 
+ * @return string the file name input by the user
+ */
 string namn_pa_fil() {
     string name;
     string extension = ".txt";
@@ -177,6 +200,12 @@ string namn_pa_fil() {
     return name;
 }
 
+/**
+ * @brief Reads a file given a stream
+ * 
+ * @param fin stream to read from
+ * @return string a string representation of all characters encountered in read stream
+ */
 string inlasning(ifstream &fin) {
     string text = "";
     char c;
@@ -189,3 +218,4 @@ string inlasning(ifstream &fin) {
 }
 // -------------------------------------------------------
 // Rapport om uppgiften
+// Lade c:a 4 halvproduktiva timmar på uppgiften
