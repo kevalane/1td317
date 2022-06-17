@@ -57,7 +57,7 @@ void abs_till_rel(int freq[ANTAL_BOKSTAVER], double rel_freq[ANTAL_BOKSTAVER], i
 // Funktionen plotta_histogram_rel
 void plotta_histogram_rel(double rel_freq[ANTAL_BOKSTAVER]);
 // Funktionen tolkning
-void tolkning(double rel_freq[ANTAL_BOKSTAVER]);
+void tolkning(double rel_freq[ANTAL_BOKSTAVER], int used);
 // Funktionen namn_pa_fil
 string namn_pa_fil();
 // Funktionen inlasning
@@ -85,8 +85,8 @@ int main()
 
     berakna_histogram_abs(text, freq, used);
     abs_till_rel(freq, rel_freq, used);
+    tolkning(rel_freq, used);
     plotta_histogram_rel(rel_freq);
-    tolkning(rel_freq);
     return 0;
 }
 
@@ -117,6 +117,7 @@ void abs_till_rel(int freq[ANTAL_BOKSTAVER], double rel_freq[ANTAL_BOKSTAVER], i
 }
 
 void plotta_histogram_rel(double rel_freq[ANTAL_BOKSTAVER]) {
+    cout << "\nBokstavsfördelning:\n" << endl;
     for (int i = 0; i < ANTAL_BOKSTAVER; i++) {
         double times = round(rel_freq[i]/0.5);
         string stars = "";
@@ -125,14 +126,14 @@ void plotta_histogram_rel(double rel_freq[ANTAL_BOKSTAVER]) {
     }
 }
 
-void tolkning(double rel_freq[ANTAL_BOKSTAVER]) {
+void tolkning(double rel_freq[ANTAL_BOKSTAVER], int used) {
     double sq_sum[ANTAL_SPRAK] = {0.0};
     double min_sum = numeric_limits<double>::max();
     int min_sum_index = -1;
     for (int i = 0; i < ANTAL_SPRAK; i++) {
-        double sum;
+        double sum = 0;
         for (int k = 0; k < ANTAL_BOKSTAVER; k++) {
-            sum += (rel_freq[k] - TOLK_HJALP[i][k])*(rel_freq[k] - TOLK_HJALP[i][k]);
+            sum += (TOLK_HJALP[i][k] - rel_freq[k])*(TOLK_HJALP[i][k] - rel_freq[k]);
         }
         sq_sum[i] = sum;
         if (sum < min_sum) {
@@ -140,7 +141,31 @@ void tolkning(double rel_freq[ANTAL_BOKSTAVER]) {
             min_sum_index = i;
         }
     }
-    cout << "LANG: " << min_sum_index << " VAR: " << min_sum << endl;
+    
+    cout << "\nResultat för bokstäverna A-Z" << endl;
+    cout << "\nTotala antalet bokstäver: " << used << endl;
+    cout << "Engelska har kvadratsumma = " << sq_sum[0] << endl;
+    cout << "Franska har kvadratsumma = " << sq_sum[1] << endl;
+    cout << "Svenska har kvadratsumma = " << sq_sum[2] << endl;
+    cout << "Tyska har kvadratsumma = " << sq_sum[3] << endl;
+    cout << "Det är mest troligt att språket är ";
+    switch(min_sum_index) {
+        case 0:
+            cout << "engelska" << endl;
+            break;
+        case 1:
+            cout << "franska" << endl;
+            break;
+        case 2:
+            cout << "svenska" << endl;
+            break;
+        case 3:
+            cout << "tyska" << endl;
+            break;
+        default:
+            cout << "error" << endl;
+            break;
+    }
 }
 
 string namn_pa_fil() {
