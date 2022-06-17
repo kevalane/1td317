@@ -25,3 +25,31 @@ Implement the following functions:
 6. inlasning() read said file
 
 ## Tests
+
+Test conducted on 06/17/2022, all passing. Test reports split up in 
+partA and partB respectively.
+
+### I lösningsförslagen tipsar vi om att du ska skapa/ladda hem en 
+fil med bara lite innehåll medan man testar sitt program. Varför, tror 
+du?
+
+Bra för att manuellt kunna räkna så att metoderna 
+berakna_histogram_abs(), abs_till_rel() m.m. returnerar rätt värden. 
+Hade det varit riktigt stora filer vi jobbat med hade även argumentet 
+kunnat göras för att det går snabbare att köra mindre filer, varför 
+iterationer på implementationssteget kan göras snabbare - något som 
+underlättar utvecklingen.
+
+
+### Texten i filen lagerlof.txt innehåller de svenska bokstäverna å, 
+ä och ö. Som programmet fungerar nu räknas inte dessa bokstäver med 
+alls. Hur skulle man gå tillväga för att också inkludera å, ä och ö i 
+histogrammet. Du behöver inte ge en program-lösning, men resonera 
+kring hur man skulle kunna göra.
+
+Implementera stöd för "ASCII expanded" som går att ses här: 
+https://www.ascii-code.com/. å=229, ä=228 och ö=246. Man får kolla 
+upp versalerna också, och ändra berakna_histogram_abs() som 
+nödvändigt. Man skulle även behöva ändra i vår konstant, för att 
+kvadratfelet skulle ta hänsyn till detta. Slutligen skulle den 
+globala variabeln med antalet bokstäver inkrementeras med 3.
