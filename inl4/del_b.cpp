@@ -85,12 +85,8 @@ int main()
 
     berakna_histogram_abs(text, freq, used);
     abs_till_rel(freq, rel_freq, used);
-    for (int i = 0; i < ANTAL_BOKSTAVER; i++) {
-        cout << (int) i + 65 << ": " << rel_freq[i] << "%" << endl;
-    }
     plotta_histogram_rel(rel_freq);
     tolkning(rel_freq);
-    cout << namn_pa_fil() << endl;
     return 0;
 }
 
