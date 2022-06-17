@@ -55,7 +55,7 @@ void berakna_histogram_abs(string &text, int freq[ANTAL_BOKSTAVER], int &used);
 // Funktionen abs_till_rel
 void abs_till_rel(int freq[ANTAL_BOKSTAVER], double rel_freq[ANTAL_BOKSTAVER], int used);
 // Funktionen plotta_histogram_rel
-
+void plotta_histogram_rel(double rel_freq[ANTAL_BOKSTAVER]);
 // Funktionen tolkning
 
 // Funktionen namn_pa_fil
@@ -76,6 +76,7 @@ int main()
     for (int i = 0; i < ANTAL_BOKSTAVER; i++) {
         cout << (int) i + 65 << ": " << rel_freq[i] << "%" << endl;
     }
+    plotta_histogram_rel(rel_freq);
     return 0;
 }
 
@@ -105,7 +106,14 @@ void abs_till_rel(int freq[ANTAL_BOKSTAVER], double rel_freq[ANTAL_BOKSTAVER], i
     }
 }
 
-
+void plotta_histogram_rel(double rel_freq[ANTAL_BOKSTAVER]) {
+    for (int i = 0; i < ANTAL_BOKSTAVER; i++) {
+        double times = round(rel_freq[i]/0.5);
+        string stars = "";
+        for (int i = 0; i < (int) times; i++) stars.push_back('*');
+        cout << (char) (i + 65) << " " << stars << endl;
+    }
+}
 
 // -------------------------------------------------------
 // Rapport om uppgiften
