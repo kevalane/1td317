@@ -57,7 +57,7 @@ void abs_till_rel(int freq[ANTAL_BOKSTAVER], double rel_freq[ANTAL_BOKSTAVER], i
 // Funktionen plotta_histogram_rel
 void plotta_histogram_rel(double rel_freq[ANTAL_BOKSTAVER]);
 // Funktionen tolkning
-
+void tolkning(double rel_freq[ANTAL_BOKSTAVER]);
 // Funktionen namn_pa_fil
 
 // Funktionen inlasning
@@ -77,6 +77,7 @@ int main()
         cout << (int) i + 65 << ": " << rel_freq[i] << "%" << endl;
     }
     plotta_histogram_rel(rel_freq);
+    tolkning(rel_freq);
     return 0;
 }
 
@@ -115,5 +116,22 @@ void plotta_histogram_rel(double rel_freq[ANTAL_BOKSTAVER]) {
     }
 }
 
+void tolkning(double rel_freq[ANTAL_BOKSTAVER]) {
+    double sq_sum[ANTAL_SPRAK] = {0.0};
+    double min_sum = numeric_limits<double>::max();
+    int min_sum_index = -1;
+    for (int i = 0; i < ANTAL_SPRAK; i++) {
+        double sum;
+        for (int k = 0; k < ANTAL_BOKSTAVER; k++) {
+            sum += (rel_freq[k] - TOLK_HJALP[i][k])*(rel_freq[k] - TOLK_HJALP[i][k]);
+        }
+        sq_sum[i] = sum;
+        if (sum < min_sum) {
+            min_sum = sum;
+            min_sum_index = i;
+        }
+    }
+    cout << "LANG: " << min_sum_index << " VAR: " << min_sum << endl;
+}
 // -------------------------------------------------------
 // Rapport om uppgiften
