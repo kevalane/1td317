@@ -35,8 +35,8 @@ int main() {
     Text t = Text();
     t.setText(text);
     t.calcHistogramAbs();
-    t.printHistogramAbs();
     t.calcHistogram();
+    t.interpret();
     return 0;
 }
 

@@ -99,5 +99,56 @@ void Text::calcHistogram() {
     this->plotHistogramRel();
 }
 
-
-
+/**
+ * @brief Calculates square error and determines a strings language.
+ * 
+ * @param rel_freq relative frequencies for letters occurrance.
+ * @param used number of used letters
+ * @return string the name of the guessed language
+ */
+string tolkning() {
+    double sq_sum[ANTAL_SPRAK] = {0.0};
+    double min_sum = numeric_limits<double>::max();
+    int min_sum_index = -1;
+    for (int i = 0; i < ANTAL_SPRAK; i++) {
+        double sum = 0;
+        for (int k = 0; k < ANTAL_BOKSTAVER; k++) {
+            sum += (TOLK_HJALP[i][k] - this->rel_histogram[k])*(TOLK_HJALP[i][k] - this->rel_histogram[k]);
+        }
+        sq_sum[i] = sum;
+        if (sum < min_sum) {
+            min_sum = sum;
+            min_sum_index = i;
+        }
+    }
+    
+    cout << "\nResultat för bokstäverna A-Z" << endl;
+    cout << "\nTotala antalet bokstäver: " << used << endl;
+    cout << "Engelska har kvadratsumma = " << sq_sum[0] << endl;
+    cout << "Franska har kvadratsumma = " << sq_sum[1] << endl;
+    cout << "Svenska har kvadratsumma = " << sq_sum[2] << endl;
+    cout << "Tyska har kvadratsumma = " << sq_sum[3] << endl;
+    cout << "Det är mest troligt att språket är ";
+    switch(min_sum_index) {
+        case 0:
+            cout << "engelska" << endl;
+            return "engelska";
+            break;
+        case 1:
+            cout << "franska" << endl;
+            return "franska";
+            break;
+        case 2:
+            cout << "svenska" << endl;
+            return "svenska";
+            break;
+        case 3:
+            cout << "tyska" << endl;
+            return "tyska";
+            break;
+        default:
+            cout << "error" << endl;
+            return "error";
+            break;
+    }
+}
