@@ -20,17 +20,17 @@ int main() {
 
     // FOR PART A ONLY
     // Läs in en rad med text från tangentbordet
-    cout << "Ge en rad med text: " << endl;
-    getline(cin, text);
+    // cout << "Ge en rad med text: " << endl;
+    // getline(cin, text);
 
     // get file and read file FOR B
-    // file_name = namn_pa_fil();
-    // ifstream fin(file_name.c_str());
-    // if (!fin) {
-    //     cout << "Error opening file." << endl;
-    //     exit(EXIT_FAILURE);
-    // }
-    // text = inlasning(fin);
+    file_name = namn_pa_fil();
+    ifstream fin(file_name.c_str());
+    if (!fin) {
+        cout << "Error opening file." << endl;
+        exit(EXIT_FAILURE);
+    }
+    text = inlasning(fin);
 
     Text t = Text();
     t.setText(text);
