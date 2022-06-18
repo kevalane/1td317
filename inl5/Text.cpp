@@ -1,4 +1,9 @@
 #include <iostream>
+#include <string>
+#include <cctype>
+#include <fstream>
+#include <cmath>
+
 #include "Text.h"
 #include "constants.h"
 
@@ -69,4 +74,21 @@ void Text::absToRel() {
         this->rel_histogram[i] = (double) this->abs_histogram[i]/ (double) this->letter_count * 100.0;
     }
 }
+
+/**
+ * @brief Used to plot the histogram given relative frequencies.
+ * 
+ * @param rel_freq array of doubles containing relative frequencies.
+ */
+void Text::plotHistogramRel() {
+    cout << "\nBokstavsfördelning:\n" << endl;
+    for (int i = 0; i < ANTAL_BOKSTAVER; i++) {
+        double times = round(this->rel_histogram[i]/0.5);
+        string stars = "";
+        for (int i = 0; i < (int) times; i++) stars.push_back('*');
+        cout << (char) (i + 65) << " " << stars << endl;
+    }
+}
+
+
 
