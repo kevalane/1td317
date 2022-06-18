@@ -90,5 +90,14 @@ void Text::plotHistogramRel() {
     }
 }
 
+/**
+ * @brief Calculates the relative histogram and prints is
+ * 
+ */
+void Text::calcHistogram() {
+    this->absToRel();
+    this->plotHistogramRel();
+}
+
 
 

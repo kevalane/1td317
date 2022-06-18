@@ -17,6 +17,7 @@ public:
     void printHistogramAbs();
     void absToRel();
     void plotHistogramRel();
+    void calcHistogram();
 };
 
 # endif
