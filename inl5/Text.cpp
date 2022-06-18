@@ -95,6 +95,7 @@ void Text::plotHistogramRel() {
  * 
  */
 void Text::calcHistogram() {
+    this->calcHistogramAbs();
     this->absToRel();
     this->plotHistogramRel();
 }
