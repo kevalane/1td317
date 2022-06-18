@@ -9,6 +9,7 @@ private:
     std::string text;
     int abs_histogram[ANTAL_BOKSTAVER];
     int letter_count;
+    double rel_histogram[ANTAL_BOKSTAVER];
 public:
     Text();
     void setText(const std::string &text);

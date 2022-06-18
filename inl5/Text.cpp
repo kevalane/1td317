@@ -5,9 +5,12 @@
 using namespace std;
 
 Text::Text() {
-    text = "";
-    for (int i = 0; i < ANTAL_BOKSTAVER; i++) abs_histogram[i] = 0;
-    letter_count = 0;
+    this->text = "";
+    for (int i = 0; i < ANTAL_BOKSTAVER; i++) {
+        this->abs_histogram[i] = 0;
+        this->rel_histogram[i] = 0.0;
+    }
+    this->letter_count = 0;
 }
 
 /**
