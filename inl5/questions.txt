@@ -1,7 +1,13 @@
 1. Finns det någon anledning varför vi beräknar både det absoluta och det relativa histogrammet i samma funktionsanrop?
 
+Förmodligen p.g.a. abstraktion, "man gömmer komplexa detaljer för användaren." Användaren är bara intresserad av sluthistogrammet, och behöver då inte ens veta att en kalkyl av absoluta frekvenser görs. Detta kan liknas med att någon som lär sig köra bil inte behöver veta hur motorn fungerar.
+
 
 2. Tänk dig att vi lägger till en rad sist i huvudprogrammet som anropar funktionen setText med en ny text, då får vi resultatet att attributet text ändras, men histogrammen fortfarande är desamma och alltså inte hör ihop med den aktuella texten. Finns det något sätt att lösa det problemet? Du behöver bara svara med ord, inte programmera något nytt.
 
+Man skulle kunna lägga in i metoden Text::setText() att ett anrop görs till Text::calcHistogram(), vilket skulle göra att användaren endast behöver kalla på Text::interpret() på nytt.
+
 
 3. Skulle man kunna inkludera funktionerna namn_pa_fil och inlasning i klassen? Skulle det göra någon skillnad på resultatet? Finns det några fördelar med att använda samma funktioner som tidigare?
+
+Man hade kunnat göra det, men anledningen är något oklar. Eftersom det är så pass generiska metoder som att läsa in input från användaren och sedan parse-a en fil, något som inte har något behov av att ha åtkomst till klassen Texts attribut, finns det ingen anledning att de ingår där heller. I sådana fall skulle man kunna göra något ekvivalent till Javas "static" (om det finns i cpp också?) vilket låter dessa metoder kallas utan instantiering av klassen Text (således frikopplade från dess attribut).
