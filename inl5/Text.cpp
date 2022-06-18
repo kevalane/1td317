@@ -106,7 +106,7 @@ void Text::calcHistogram() {
  * @param used number of used letters
  * @return string the name of the guessed language
  */
-string tolkning() {
+string Text::interpret() {
     double sq_sum[ANTAL_SPRAK] = {0.0};
     double min_sum = numeric_limits<double>::max();
     int min_sum_index = -1;
@@ -123,7 +123,7 @@ string tolkning() {
     }
     
     cout << "\nResultat för bokstäverna A-Z" << endl;
-    cout << "\nTotala antalet bokstäver: " << used << endl;
+    cout << "\nTotala antalet bokstäver: " << this->letter_count << endl;
     cout << "Engelska har kvadratsumma = " << sq_sum[0] << endl;
     cout << "Franska har kvadratsumma = " << sq_sum[1] << endl;
     cout << "Svenska har kvadratsumma = " << sq_sum[2] << endl;
