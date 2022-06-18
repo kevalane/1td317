@@ -15,6 +15,7 @@ public:
     void setText(const std::string &text);
     bool calcHistogramAbs();
     void printHistogramAbs();
+    void absToRel();
 };
 
 # endif

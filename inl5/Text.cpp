@@ -56,3 +56,17 @@ void Text::printHistogramAbs() {
         cout << (char) (i + 65) << ": " << this->abs_histogram[i] << endl;
     }
 }
+
+/**
+ * @brief Converts frequency to relative frequency
+ * 
+ * @param freq array of freq
+ * @param rel_freq array of rel freq added my this function
+ * @param used the number of used letters
+ */
+void Text::absToRel() {
+    for (int i = 0; i < ANTAL_BOKSTAVER; i++) {
+        this->rel_histogram[i] = (double) this->abs_histogram[i]/ (double) this->letter_count * 100.0;
+    }
+}
+
