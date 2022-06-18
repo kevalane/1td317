@@ -18,6 +18,7 @@ public:
     void absToRel();
     void plotHistogramRel();
     void calcHistogram();
+    std::string interpret();
 };
 
 # endif
