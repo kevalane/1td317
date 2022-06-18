@@ -1,0 +1,183 @@
+###############
+# TEST CASE 1 #
+###############
+
+Skriv in ett filnamn: 
+txt/doyle
+
+Bokstavsfördelning:
+
+A ****************
+B ***
+C *******
+D ********
+E ************************
+F ****
+G ***
+H ************
+I ***************
+J 
+K **
+L ********
+M *****
+N *************
+O ***************
+P ****
+Q 
+R ***********
+S *************
+T ******************
+U ******
+V **
+W ****
+X 
+Y *****
+Z 
+
+Resultat för bokstäverna A-Z
+
+Totala antalet bokstäver: 12885
+Engelska har kvadratsumma = 1.75771
+Franska har kvadratsumma = 96.1956
+Svenska har kvadratsumma = 73.3371
+Tyska har kvadratsumma = 116.072
+Det är mest troligt att språket är engelska
+
+###############
+# TEST CASE 2 #
+###############
+Skriv in ett filnamn: 
+txt/goethe.txt
+
+Bokstavsfördelning:
+
+A ***********
+B ***
+C *******
+D *********
+E *********************************
+F ***
+G *******
+H ***********
+I ******************
+J 
+K **
+L *******
+M ******
+N **********************
+O ****
+P *
+Q 
+R ************
+S **************
+T ***********
+U ********
+V **
+W ****
+X 
+Y *
+Z ***
+
+Resultat för bokstäverna A-Z
+
+Totala antalet bokstäver: 14027
+Engelska har kvadratsumma = 107.856
+Franska har kvadratsumma = 85.205
+Svenska har kvadratsumma = 160.318
+Tyska har kvadratsumma = 1.04313
+Det är mest troligt att språket är tyska
+
+###############
+# TEST CASE 3 #
+###############
+Skriv in ett filnamn: 
+txt/lagerlof
+
+Bokstavsfördelning:
+
+A ***********************
+B **
+C ***
+D ************
+E *******************
+F ****
+G ********
+H *******
+I ********
+J ***
+K *******
+L **********
+M *******
+N ******************
+O *********
+P ***
+Q 
+R ***************
+S **************
+T ******************
+U ***
+V ******
+W 
+X 
+Y *
+Z 
+
+Resultat för bokstäverna A-Z
+
+Totala antalet bokstäver: 12221
+Engelska har kvadratsumma = 86.6804
+Franska har kvadratsumma = 145.722
+Svenska har kvadratsumma = 8.88258
+Tyska har kvadratsumma = 170.223
+Det är mest troligt att språket är svenska
+
+###############
+# TEST CASE 4 #
+###############
+Skriv in ett filnamn: 
+txt/verne.txt
+
+Bokstavsfördelning:
+
+A ****************
+B ***
+C *******
+D ********
+E ***********************************
+F **
+G **
+H *
+I **************
+J *
+K 
+L ***********
+M ******
+N ***************
+O **********
+P ******
+Q **
+R **************
+S *****************
+T **************
+U ************
+V ***
+W 
+X *
+Y *
+Z 
+
+Resultat för bokstäverna A-Z
+
+Totala antalet bokstäver: 11417
+Engelska har kvadratsumma = 112.425
+Franska har kvadratsumma = 0.885142
+Svenska har kvadratsumma = 149.256
+Tyska har kvadratsumma = 90.491
+Det är mest troligt att språket är franska
+
+###############
+# TEST CASE 5 #
+###############
+Skriv in ett filnamn: 
+
+Error opening file.
