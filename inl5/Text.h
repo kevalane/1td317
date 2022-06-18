@@ -1,8 +1,8 @@
-# ifndef __Text__
-# define __Text__
-
 #include <string>
 #include "constants.h"
+
+# ifndef __Text__
+# define __Text__
 
 class Text {
 private:
@@ -14,6 +14,6 @@ public:
     void setText(const std::string &text);
     bool calcHistogramAbs();
     void printHistogramAbs();
-}
+};
 
 # endif
