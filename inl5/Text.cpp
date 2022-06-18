@@ -10,10 +10,22 @@ Text::Text() {
     letter_count = 0;
 }
 
+/**
+ * @brief Setter for text attribute
+ * 
+ * @param text to use for the set
+ */
 void Text::setText(const string &text) {
     this->text = text;
 }
 
+/**
+ * @brief Counts frequencies of chars in a given string.
+ * 
+ * @param text string to count freq on
+ * @param freq array to store values of freq
+ * @param used number of used letters
+ */
 bool Text::calcHistogramAbs() {
     if (this->text.size() == 0) return false;
     for (int i = 0; i < this->text.size(); i++) {
@@ -27,6 +39,12 @@ bool Text::calcHistogramAbs() {
     return true;
 }
 
+/**
+ * @brief Prints out contents of array freq
+ * 
+ * @param freq array of length ANTAL_BOKSTAVER (26) containing all frequencies for letters
+ * @param used the number of used characters
+ */
 void Text::printHistogramAbs() {
     cout << "\nResultat för bokstäverna A-Z\n" << endl;
     cout << "Totala antalet bokstäver: " << this->letter_count << endl;

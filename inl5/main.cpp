@@ -13,6 +13,7 @@ int main() {
     Text t = Text();
     string s = "Testing this shizz";
     t.setText(s);
+    t.calcHistogramAbs();
     t.printHistogramAbs();
     return 0;
 }
