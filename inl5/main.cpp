@@ -15,9 +15,25 @@ string namn_pa_fil();
 string inlasning(ifstream &fin);
 
 int main() {
+    string file_name;
+    string text;
+
+    // FOR PART A ONLY
+    // Läs in en rad med text från tangentbordet
+    cout << "Ge en rad med text: " << endl;
+    getline(cin, text);
+
+    // get file and read file FOR B
+    // file_name = namn_pa_fil();
+    // ifstream fin(file_name.c_str());
+    // if (!fin) {
+    //     cout << "Error opening file." << endl;
+    //     exit(EXIT_FAILURE);
+    // }
+    // text = inlasning(fin);
+
     Text t = Text();
-    string s = "Testing this shizz";
-    t.setText(s);
+    t.setText(text);
     t.calcHistogramAbs();
     t.printHistogramAbs();
     return 0;
