@@ -1,0 +1,7 @@
+1. Finns det någon anledning varför vi beräknar både det absoluta och det relativa histogrammet i samma funktionsanrop?
+
+
+2. Tänk dig att vi lägger till en rad sist i huvudprogrammet som anropar funktionen setText med en ny text, då får vi resultatet att attributet text ändras, men histogrammen fortfarande är desamma och alltså inte hör ihop med den aktuella texten. Finns det något sätt att lösa det problemet? Du behöver bara svara med ord, inte programmera något nytt.
+
+
+3. Skulle man kunna inkludera funktionerna namn_pa_fil och inlasning i klassen? Skulle det göra någon skillnad på resultatet? Finns det några fördelar med att använda samma funktioner som tidigare?
