@@ -2,6 +2,7 @@
 #define __Transaction__
 
 #include <iostream>
+#include "constants.h"
 
 class Transaction {
 private:
@@ -10,7 +11,7 @@ private:
     std::string name;
     double amount;
     int number_of_friends;
-    std::friends[1];
+    std::string friends[MAX_PERSONS];
 
 public:
     Transaction();
@@ -22,7 +23,7 @@ public:
     bool read(istream &is);
     bool write(ostream &os);
     bool writeTitle(ostream &os);
-}
+};
 
 
 #endif // __Transaction__
