@@ -21,8 +21,8 @@ public:
     int getNumerOfFriends();
     bool friendExists(const std::string &name);
     bool read(std::istream &is);
-    bool write(std::ostream &os);
-    bool writeTitle(std::ostream &os);
+    void write(std::ostream &os);
+    void writeTitle(std::ostream &os);
 };
 
 
