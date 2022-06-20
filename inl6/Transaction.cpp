@@ -32,11 +32,11 @@ bool Transaction::friendExists(const string &name) {
 }
 
 bool Transaction::read(istream &is) {
-    fin >> this->date >> this->type >> this->name >> this->amount >> this->number_of_friends;
+    is >> this->date >> this->type >> this->name >> this->amount >> this->number_of_friends;
     for (int i = 0 ; i < this->number_of_friends; i++) {
-        fin >> this->friends[i];
+        is >> this->friends[i];
     }
-    return !fin.eof();
+    return !is.eof();
 }
 
 void Transaction::write(ostream &os) {
