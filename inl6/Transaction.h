@@ -20,9 +20,9 @@ public:
     double getAmount();
     int getNumerOfFriends();
     bool friendExists(const std::string &name);
-    bool read(istream &is);
-    bool write(ostream &os);
-    bool writeTitle(ostream &os);
+    bool read(std::istream &is);
+    bool write(std::ostream &os);
+    bool writeTitle(std::ostream &os);
 };
 
 
