@@ -14,5 +14,6 @@ int main() {
     ifstream fin(file_name.c_str());
     t.read(fin);
     cout << t.getName() << endl;
+    t.writeTitle(cout);
     return 0;
 }
