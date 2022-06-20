@@ -1,3 +1,4 @@
+#include <iomanip>
 #include "Transaction.h"
 #include "constants.h"
 
@@ -44,7 +45,12 @@ void Transaction::write(ostream &os) {
 }
 
 void Transaction::writeTitle(ostream &os) {
-    
+    os << "Datum" << setw(10);
+    os << "Typ" << setw(10);
+    os << "Namn" << setw(10);
+    os << "Belopp" << setw(10);
+    os << "Antal" << setw(20);
+    os << "Lista av kompisar" << endl;
 }
 
 Transaction::~Transaction() {}
