@@ -29,6 +29,18 @@ bool Transaction::friendExists(const string &name) {
         if (this->friends[i] == name) return true;
     }
     return false;
-} 
+}
+
+bool Transaction::read(istream &is) {
+    return false;
+}
+
+void Transaction::write(ostream &os) {
+    
+}
+
+void Transaction::writeTitle(ostream &os) {
+    
+}
 
 Transaction::~Transaction() {}
