@@ -18,11 +18,3 @@ int main() {
     t.write(cout);
     return 0;
 }
-
-
-// implement a function that switches two integers
-void swap(int &a, int &b) {
-    int temp = a;
-    a = b;
-    b = temp;
-}
