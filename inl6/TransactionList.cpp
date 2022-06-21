@@ -40,7 +40,17 @@ double TransactionList::personPayed(const string &name) {
     double total = 0;
     for (int i = 0; i < transaction_count; i++) {
         if (transactions[i].getName() == name) {
-            total += transactions[i].getAmount() * (1.0 - 1.0/transactions[i].getNumerOfFriends() + 1.0);
+            total += transactions[i].getAmount() * (1.0 - 1.0/(transactions[i].getNumberOfFriends() + 1.0));
+        }
+    }
+    return total;
+}
+
+double TransactionList::personOwed(const string &name) {
+    double total = 0;
+    for (int i = 0; i < transaction_count; i++) {
+        if (transactions[i].friendExists(name)) {
+            total += transactions[i].getAmount() * (1.0 - 1.0/ (transactions[i].getNumberOfFriends() + 1.0);
         }
     }
     return total;
