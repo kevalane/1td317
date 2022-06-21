@@ -18,7 +18,7 @@ public:
     ~Transaction();
     std::string getName();
     double getAmount();
-    int getNumerOfFriends();
+    int getNumberOfFriends();
     bool friendExists(const std::string &name);
     bool read(std::istream &is);
     void write(std::ostream &os);

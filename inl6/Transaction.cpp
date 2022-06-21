@@ -21,7 +21,7 @@ double Transaction::getAmount() {
     return this->amount;
 }
 
-int Transaction::getNumerOfFriends() {
+int Transaction::getNumberOfFriends() {
     return this->number_of_friends;
 }
 
