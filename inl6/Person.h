@@ -7,15 +7,15 @@ class Person
 {
 private:
     std::string name;
-    double payed_others;
+    double payed;
     double owed_others;
 public:
     Person();
-    Person(const string &name, double payed_others, double owed_others);
+    Person(const std::string &name, double payed_others, double owed_others);
     std::string getName();
     double getPayedOthers();
     double getOwedOthers();
-    void write(ostream &os);
+    void write(std::ostream &os);
 };
 
 #endif // __Person__
