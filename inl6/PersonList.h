@@ -1,5 +1,5 @@
-#ifndef __PERSONLIST_H__
-#define __PERSONLIST_H__
+#ifndef __PERSONLIST__
+#define __PERSONLIST__
 
 #include <string>
 #include "constants.h"
@@ -14,10 +14,10 @@ public:
     PersonList();
     ~PersonList();
     void addPerson(Person newPerson);
-    void writwAndFix(std::ostream &os);
+    void writeAndFix(std::ostream &os);
     double sumOwed();
     double sumPayed();
     bool personExists(const std::string &name);
-}
+};
 
-#endif // __PERSONLIST_H__
+#endif // __PERSONLIST__
