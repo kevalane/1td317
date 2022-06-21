@@ -41,15 +41,23 @@ bool Transaction::read(istream &is) {
 }
 
 void Transaction::write(ostream &os) {
-    
+    os << this->date << setw(10) << setfill(' ');
+    os << this->type << setw(10) << setfill(' ');
+    os << this->name << setw(10) << setfill(' ');
+    os << this->amount << setw(10) << setfill(' ');
+    os << this->number_of_friends << setw(20) << setfill(' ');
+    for (int i = 0; i < number_of_friends; i++) {
+        os << this->friends[i];
+    }
+    os << endl;
 }
 
 void Transaction::writeTitle(ostream &os) {
-    os << "Datum" << setw(10);
-    os << "Typ" << setw(10);
-    os << "Namn" << setw(10);
-    os << "Belopp" << setw(10);
-    os << "Antal" << setw(20);
+    os << "Datum" << setw(10) << setfill(' ');
+    os << "Typ" << setw(10) << setfill(' ');
+    os << "Namn" << setw(10) << setfill(' ');
+    os << "Belopp" << setw(10) << setfill(' ');
+    os << "Antal" << setw(20) << setfill(' ');
     os << "Lista av kompisar" << endl;
 }
 
