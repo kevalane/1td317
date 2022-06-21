@@ -1,4 +1,5 @@
 #include <string>
+#include <iomanip>
 #include "constants.h"
 #include "Person.h"
 #include "PersonList.h"
@@ -25,18 +26,19 @@ PersonList::~PersonList()
 
 void PersonList::writeAndFix(ostream &os)
 {
+    os << setprecision(15);
     // print the persons
     for (int i = 0; i < person_count; i++) {
         persons[i].write(os);
     }
-    cout << this->sumOwed() << "==" << this->sumPayed() << endl;
+    os << this->sumOwed() << "==" << this->sumPayed() << endl;
 }
 
 double PersonList::sumOwed()
 {
     double sum = 0.0;
     for (int i = 0; i < person_count; i++) {
-        sum += persons[i].getOwed();
+        sum += persons[i].getOwedOthers();
     }
     return sum;
 }
@@ -45,7 +47,7 @@ double PersonList::sumPayed()
 {
     double sum = 0.0;
     for (int i = 0; i < person_count; i++) {
-        sum += persons[i].getPayed();
+        sum += persons[i].getPayedOthers();
     }
     return sum;
 }
