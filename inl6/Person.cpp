@@ -5,12 +5,12 @@
 using namespace std;
 
 Person::Person()
-: name(""), payed_others(0.0), owed_others(0.0)
+: name(""), payed(0.0), owed_others(0.0)
 {
 }
 
-Person::Person(const string &name, double payed_others, double owed_others)
-: name(name), payed_others(payed_others), owed_others(owed_others)
+Person::Person(const string &name, double payed, double owed_others)
+: name(name), payed(payed), owed_others(owed_others)
 {
 }
 
@@ -21,7 +21,7 @@ string Person::getName()
 
 double Person::getPayedOthers()
 {
-    return this->payed_others;
+    return this->payed;
 }
 
 double Person::getOwedOthers()
@@ -31,5 +31,6 @@ double Person::getOwedOthers()
 
 void Person::write(ostream &os)
 {
-    os << this->name << " " << this->payed_others << " " << this->owed_others << endl;
+    os << this->name << " ligger ute med " << this->payed << " och är skyldig " << this->owed_others << ".";
+    os << " Skall ha " << this->payed - this->owed_others << " från potten!" << endl;
 }
