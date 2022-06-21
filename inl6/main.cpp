@@ -19,11 +19,14 @@ int main() {
     // t.writeTitle(cout);
     // t.write(cout);
 
-    Person p = Person();
-    Person p2 = Person();
+    Person p1 = Person("Kalle", 100.0, 0.0);
+    Person p2 = Person("Pelle", 0.0, 100.0);
+    Person p3 = Person("Lisa", 0.0, 0.0);
+
     PersonList pl = PersonList();
-    pl.addPerson(p);
+    pl.addPerson(p1);
     pl.addPerson(p2);
+    pl.addPerson(p3);
     pl.writeAndFix(cout);
     return 0;
 }
