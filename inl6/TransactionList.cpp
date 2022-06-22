@@ -17,11 +17,17 @@ TransactionList::~TransactionList()
 }
 
 void TransactionList::read(istream &is) {
-
+    Transaction t;
+    while (t.read(is)) {
+        addTransaction(t);
+    }
 }
 
 void TransactionList::write(ostream &os) {
-
+    cout << "Antal transaktioner: " << transaction_count << endl;
+    for (int i = 0; i < transaction_count; i++) {
+        transactions[i].write(os);
+    }
 }
 
 void TransactionList::addTransaction(Transaction &t) {
