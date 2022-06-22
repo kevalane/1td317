@@ -26,12 +26,11 @@ PersonList::~PersonList()
 
 void PersonList::writeAndFix(ostream &os)
 {
-    os << setprecision(15);
+    os << setprecision(2) << fixed;
     // print the persons
     for (int i = 0; i < person_count; i++) {
         persons[i].write(os);
     }
-    os << this->sumOwed() << "==" << this->sumPayed() << endl;
 }
 
 double PersonList::sumOwed()

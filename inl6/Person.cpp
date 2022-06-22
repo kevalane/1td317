@@ -32,5 +32,7 @@ double Person::getOwedOthers()
 void Person::write(ostream &os)
 {
     os << this->name << " ligger ute med " << this->payed << " och är skyldig " << this->owed_others << ".";
-    os << " Skall ha " << this->payed - this->owed_others << " från potten!" << endl;
+    double diff = this->payed - this->owed_others;
+    if (diff >= 0) os << " Skall ha " << diff << " från potten!" << endl;
+    else os << " Ska betala " << -diff << " till potten!" << endl;
 }
