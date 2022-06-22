@@ -58,7 +58,7 @@ double TransactionList::personOwed(const string &name) {
     return total;
 }
 
-PersonList TransactionList::FixPersons() {
+PersonList TransactionList::fixPersons() {
     PersonList pl;
     string name;
     double payed;

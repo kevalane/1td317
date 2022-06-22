@@ -15,13 +15,13 @@ private:
 public:
     TransactionList();
     ~TransactionList();
-    void read(istream &is);
-    void write(ostream &os);
+    void read(std::istream &is);
+    void write(std::ostream &os);
     void addTransaction(Transaction &t);
     double totalCost();
-    double personPayed(const string &name);
-    double personOwed(const string &name);
-    PersonList FixPersons();
+    double personPayed(const std::string &name);
+    double personOwed(const std::string &name);
+    PersonList fixPersons();
 };
 
 #endif // __TransactionList__
