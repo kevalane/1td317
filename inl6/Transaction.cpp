@@ -27,7 +27,7 @@ int Transaction::getNumberOfFriends() {
 
 bool Transaction::friendExists(const string &name) {
     for (int i = 0; i < MAX_PERSONS; i++) {
-        if (this->friends[i] == name) return true;
+        if (this->friends[i].compare(name) == 0) return true;
     }
     return false;
 }

@@ -25,6 +25,7 @@ void TransactionList::read(istream &is) {
 
 void TransactionList::write(ostream &os) {
     cout << "Antal transaktioner: " << transaction_count << endl;
+    transactions[0].writeTitle(os);
     for (int i = 0; i < transaction_count; i++) {
         transactions[i].write(os);
     }
@@ -46,8 +47,8 @@ double TransactionList::totalCost() {
 double TransactionList::personPayed(const string &name) {
     double total = 0;
     for (int i = 0; i < transaction_count; i++) {
-        if (transactions[i].getName() == name) {
-            total += transactions[i].getAmount() * (1.0 - 1.0/(transactions[i].getNumberOfFriends() + 1.0));
+        if (transactions[i].getName().compare(name) == 0) {
+            total += (transactions[i].getAmount() - (transactions[i].getAmount()/(transactions[i].getNumberOfFriends() + 1)));
         }
     }
     return total;

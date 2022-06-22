@@ -55,7 +55,7 @@ double PersonList::sumPayed()
 bool PersonList::personExists(const string &name)
 {
     for (int i = 0; i < person_count; i++) {
-        if (persons[i].getName() == name) {
+        if (persons[i].getName().compare(name) == 0) {
             return true;
         }
     }
