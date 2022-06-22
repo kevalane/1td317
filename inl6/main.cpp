@@ -16,7 +16,7 @@ int main()
   cout << "Startar med att läsa från en fil." << endl;
 
   TransactionList transaktioner;
-  std::ifstream     is("txt/resa.txt");
+  std::ifstream     is("txt/test2.txt");
   transaktioner.read(is);
 
   int operation = 1;
