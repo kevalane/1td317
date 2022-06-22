@@ -46,6 +46,7 @@ double TransactionList::personPayed(const string &name) {
     return total;
 }
 
+// not working implement again
 double TransactionList::personOwed(const string &name) {
     double total = 0;
     for (int i = 0; i < transaction_count; i++) {
