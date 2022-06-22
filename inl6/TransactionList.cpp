@@ -1,5 +1,6 @@
 #include "TransactionList.h"
 #include "Transaction.h"
+#include "PersonList.h"
 
 using namespace std;
 
@@ -23,7 +24,7 @@ void TransactionList::write(ostream &os) {
 
 }
 
-void TransactionList:addTransaction(Transaction &t) {
+void TransactionList::addTransaction(Transaction &t) {
     this->transactions[transaction_count] = t;
     transaction_count++;
 }
@@ -51,8 +52,26 @@ double TransactionList::personOwed(const string &name) {
     double total = 0;
     for (int i = 0; i < transaction_count; i++) {
         if (transactions[i].friendExists(name)) {
-            total += transactions[i].getAmount() * (1.0 - 1.0/ (transactions[i].getNumberOfFriends() + 1.0);
+            total += (transactions[i].getAmount()/(transactions[i].getNumberOfFriends() + 1));
         }
     }
     return total;
+}
+
+PersonList TransactionList::FixPersons() {
+    PersonList pl;
+    string name;
+    double payed;
+    double owed;
+
+    for (int i = 0; i < MAX_TRANSACTIONS; i++) {
+        name = transactions[i].getName();
+        if (!pl.personExists(name)) {
+            payed = personPayed(name);
+            owed = personOwed(name);
+            Person p(name, payed, owed);
+            pl.addPerson(p);
+        }
+    }
+    return pl;
 }
