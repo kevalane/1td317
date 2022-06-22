@@ -37,6 +37,10 @@ bool Transaction::read(istream &is) {
     for (int i = 0 ; i < this->number_of_friends; i++) {
         is >> this->friends[i];
     }
+    // have to clear out all other spaces in vector
+    for (int i = this->number_of_friends; i < MAX_PERSONS; i++) {
+        this->friends[i] = "";
+    }
     return !is.eof();
 }
 
