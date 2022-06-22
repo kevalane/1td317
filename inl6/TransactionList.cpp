@@ -66,17 +66,18 @@ double TransactionList::personOwed(const string &name) {
 }
 
 PersonList TransactionList::fixPersons() {
-    PersonList pl;
+    PersonList pl = PersonList();
     string name;
     double payed;
     double owed;
 
     for (int i = 0; i < MAX_TRANSACTIONS; i++) {
         name = transactions[i].getName();
-        if (!pl.personExists(name)) {
+        // check if person exists in list and don't allow empty name
+        if (!pl.personExists(name) && name.compare("") != 0) {
             payed = personPayed(name);
             owed = personOwed(name);
-            Person p(name, payed, owed);
+            Person p = Person(name, payed, owed);
             pl.addPerson(p);
         }
     }
