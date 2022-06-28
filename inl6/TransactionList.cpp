@@ -83,3 +83,11 @@ PersonList TransactionList::fixPersons() {
     }
     return pl;
 }
+
+TransactionList & TransactionList::operator = (const TransactionList &other) {
+    if (this != &other) {
+        delete[] transactions;
+        this->transaction_count = other.transaction_count;
+    }
+    return *this;
+}
