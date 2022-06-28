@@ -10,11 +10,12 @@
 class TransactionList {
 private:
     int transaction_count;
-    Transaction transactions[MAX_TRANSACTIONS];
+    Transaction *transactions;
 
 public:
     TransactionList();
     ~TransactionList();
+    TransactionList & operator = (const TransactionList &);
     void read(std::istream &is);
     void write(std::ostream &os);
     void addTransaction(Transaction &t);
