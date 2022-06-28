@@ -60,3 +60,15 @@ bool PersonList::personExists(const string &name)
     }
     return false;
 }
+
+PersonList & PersonList::operator = (const PersonList &other)
+{
+    if (this != &other) {
+        delete[] persons;
+        this->person_count = other.person_count;
+        for (int i = 0; i < person_count; i++) {
+            this->persons[i] = other.persons[i];
+        }
+    }
+    return *this;
+}
