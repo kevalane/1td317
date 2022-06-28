@@ -68,3 +68,18 @@ void Transaction::writeTitle(ostream &os) {
 }
 
 Transaction::~Transaction() {}
+
+Transaction& Transaction::operator=(const Transaction& t) {
+    if (this != t) {
+        delete[] friends;
+        this->date = t.date;
+        this->type = t.type;
+        this->name = t.name;
+        this->amount = t.amount;
+        this->number_of_friends = t.number_of_friends;
+        for (int i = 0; i < MAX_PERSONS; i++) {
+            this->friends[i] = t.friends[i];
+        }
+    }
+    return *this;
+}
