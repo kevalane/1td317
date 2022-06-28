@@ -8,11 +8,12 @@
 class PersonList {
 private:
     int person_count;
-    Person persons[MAX_PERSONS];
+    Person *persons;
 
 public:
     PersonList();
     ~PersonList();
+    PersonList & operator = (const PersonList &);
     void addPerson(Person newPerson);
     void writeAndFix(std::ostream &os);
     double sumOwed();
