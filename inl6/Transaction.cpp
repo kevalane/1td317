@@ -70,7 +70,7 @@ void Transaction::writeTitle(ostream &os) {
 Transaction::~Transaction() {}
 
 Transaction& Transaction::operator=(const Transaction& t) {
-    if (this != t) {
+    if (this != &t) {
         delete[] friends;
         this->date = t.date;
         this->type = t.type;
