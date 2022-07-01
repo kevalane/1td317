@@ -85,12 +85,12 @@ PersonList TransactionList::fixPersons() {
 }
 
 TransactionList & TransactionList::operator = (const TransactionList &other) {
-    if (this != &other) {
-        delete[] transactions;
-        this->transaction_count = other.transaction_count;
-        for (int i = 0; i < transaction_count; i++) {
-            this->transactions[i] = other.transactions[i];
-        }
-    }
+    // if (this != &other) {
+    //     delete[] transactions;
+    //     this->transaction_count = other.transaction_count;
+    //     for (int i = 0; i < transaction_count; i++) {
+    //         this->transactions[i] = other.transactions[i];
+    //     }
+    // }
     return *this;
 }

@@ -29,10 +29,6 @@ void PersonList::addPerson(Person newPerson)
     persons = p; // assign new array to old array
 }
 
-PersonList::~PersonList()
-{
-}
-
 void PersonList::writeAndFix(ostream &os)
 {
     os << setprecision(2) << fixed;
