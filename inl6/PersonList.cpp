@@ -7,11 +7,13 @@
 using namespace std;
 
 PersonList::PersonList()
-: person_count(0)
+: person_count(0), persons(nullptr) // nullpoint
 {
-    for (int i = 0; i < MAX_PERSONS; i++) {
-        persons[i] = Person();
-    }
+}
+
+PersonList::~PersonList()
+{
+    delete[] persons;
 }
 
 void PersonList::addPerson(Person newPerson)
