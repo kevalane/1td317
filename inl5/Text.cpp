@@ -76,7 +76,7 @@ void Text::absToRel() {
 }
 
 /**
- * @brief Used to plot the histogram given relative frequencies.
+ * @brief Used to plot the histogram given relative frequencies
  * 
  * @param rel_freq array of doubles containing relative frequencies.
  */
