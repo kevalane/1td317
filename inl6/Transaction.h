@@ -11,8 +11,7 @@ private:
     std::string name;
     double amount;
     int number_of_friends;
-    // std::string *friends;
-    std::string friends[MAX_PERSONS];
+    std::string *friends;
 public:
     Transaction();
     ~Transaction();
