@@ -5,15 +5,23 @@
 using namespace std;
 
 TransactionList::TransactionList()
-: transaction_count(0)
+: transaction_count(0), transactions(nullptr)
 {
-    for (int i = 0; i < MAX_TRANSACTIONS; i++) {
-        transactions[i] = Transaction();
-    }
 }
 
 TransactionList::~TransactionList()
 {
+}
+
+TransactionList & TransactionList::operator = (const TransactionList &other) {
+    if (this != &other) {
+        delete[] transactions;
+        this->transaction_count = other.transaction_count;
+        for (int i = 0; i < transaction_count; i++) {
+            this->transactions[i] = other.transactions[i];
+        }
+    }
+    return *this;
 }
 
 void TransactionList::read(istream &is) {
@@ -31,9 +39,16 @@ void TransactionList::write(ostream &os) {
     }
 }
 
-void TransactionList::addTransaction(Transaction &t) {
-    this->transactions[transaction_count] = t;
+void TransactionList::addTransaction(Transaction &newTransaction) {
+    Transaction *t = nullptr;
+    t = new Transaction[transaction_count + 1]; // create new array of new size
+    for (int i = 0; i < transaction_count; i++) {
+        t[i] = this->transactions[i]; // copy
+    }
+    t[transaction_count] = newTransaction;
     transaction_count++;
+    delete[] transactions; // delete old array, 'cancels' new keyword
+    transactions = t;
 }
 
 double TransactionList::totalCost() {
@@ -71,7 +86,7 @@ PersonList TransactionList::fixPersons() {
     double payed;
     double owed;
 
-    for (int i = 0; i < MAX_TRANSACTIONS; i++) {
+    for (int i = 0; i < this->transaction_count; i++) {
         name = transactions[i].getName();
         // check if person exists in list and don't allow empty name
         if (!pl.personExists(name) && name.compare("") != 0) {
@@ -82,15 +97,4 @@ PersonList TransactionList::fixPersons() {
         }
     }
     return pl;
-}
-
-TransactionList & TransactionList::operator = (const TransactionList &other) {
-    // if (this != &other) {
-    //     delete[] transactions;
-    //     this->transaction_count = other.transaction_count;
-    //     for (int i = 0; i < transaction_count; i++) {
-    //         this->transactions[i] = other.transactions[i];
-    //     }
-    // }
-    return *this;
 }
