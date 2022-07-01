@@ -13,6 +13,15 @@ amount(0.0), number_of_friends(0)
     }
 }
 
+Transaction::~Transaction()
+{
+    delete[] friends;
+}
+
+Transaction::~Transaction() {
+    delete[] friends;
+}
+
 string Transaction::getName() {
     return this->name;
 }
@@ -34,13 +43,16 @@ bool Transaction::friendExists(const string &name) {
 
 bool Transaction::read(istream &is) {
     is >> this->date >> this->type >> this->name >> this->amount >> this->number_of_friends;
-    for (int i = 0 ; i < this->number_of_friends; i++) {
-        is >> this->friends[i];
+    
+    string *f;
+    f = new string[this->number_of_friends]; // allocate memory for friends array
+    // add friends to array
+    for (int i = 0; i < this->number_of_friends; i++) {
+        is >> f[i];
     }
-    // have to clear out all other spaces in vector
-    for (int i = this->number_of_friends; i < MAX_PERSONS; i++) {
-        this->friends[i] = "";
-    }
+    delete[] friends; // delete old array, no mem leak
+    friends = f; // assign new array to old array
+
     return !is.eof();
 }
 
@@ -67,19 +79,17 @@ void Transaction::writeTitle(ostream &os) {
     os << "Lista av kompisar" << endl;
 }
 
-Transaction::~Transaction() {}
-
 Transaction& Transaction::operator=(const Transaction& t) {
-    // if (this != &t) {
-    //     delete[] friends;
-    //     this->date = t.date;
-    //     this->type = t.type;
-    //     this->name = t.name;
-    //     this->amount = t.amount;
-    //     this->number_of_friends = t.number_of_friends;
-    //     for (int i = 0; i < MAX_PERSONS; i++) {
-    //         this->friends[i] = t.friends[i];
-    //     }
-    // }
+    if (this != &t) {
+        delete[] friends;
+        this->date = t.date;
+        this->type = t.type;
+        this->name = t.name;
+        this->amount = t.amount;
+        this->number_of_friends = t.number_of_friends;
+        for (int i = 0; i < MAX_PERSONS; i++) {
+            this->friends[i] = t.friends[i];
+        }
+    }
     return *this;
 }
