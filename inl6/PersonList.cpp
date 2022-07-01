@@ -7,21 +7,26 @@
 using namespace std;
 
 PersonList::PersonList()
-: person_count(0)
+: person_count(0), persons(nullptr) // nullpoint
 {
-    for (int i = 0; i < MAX_PERSONS; i++) {
-        persons[i] = Person();
-    }
-}
-
-void PersonList::addPerson(Person newPerson)
-{
-    persons[person_count] = newPerson;
-    person_count++;
 }
 
 PersonList::~PersonList()
 {
+    delete[] persons;
+}
+
+void PersonList::addPerson(Person newPerson)
+{
+    Person *p = nullptr;
+    p = new Person[person_count + 1]; // new, now we need delete[] later
+    for (int i = 0; i < person_count; i++) {
+        p[i] = persons[i];
+    }
+    p[person_count] = newPerson; // last person in array is new person
+    person_count++; // increment num persons
+    delete[] persons; // delete old array, no mem leak
+    persons = p; // assign new array to old array
 }
 
 void PersonList::writeAndFix(ostream &os)
@@ -59,4 +64,16 @@ bool PersonList::personExists(const string &name)
         }
     }
     return false;
+}
+
+PersonList & PersonList::operator = (const PersonList &other)
+{
+    if (this != &other) {
+        delete[] persons;
+        this->person_count = other.person_count;
+        for (int i = 0; i < person_count; i++) {
+            this->persons[i] = other.persons[i];
+        }
+    }
+    return *this;
 }
