@@ -18,8 +18,15 @@ PersonList::~PersonList()
 
 void PersonList::addPerson(Person newPerson)
 {
-    persons[person_count] = newPerson;
-    person_count++;
+    Person *p = nullptr;
+    p = new Person[person_count + 1]; // new, now we need delete[] later
+    for (int i = 0; i < person_count; i++) {
+        p[i] = persons[i];
+    }
+    p[person_count] = newPerson; // last person in array is new person
+    person_count++; // increment num persons
+    delete[] persons; // delete old array, no mem leak
+    persons = p; // assign new array to old array
 }
 
 PersonList::~PersonList()
