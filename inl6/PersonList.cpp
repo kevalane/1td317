@@ -6,16 +6,29 @@
 
 using namespace std;
 
+/**
+ * @brief Construct a new Person List:: Person List object
+ * 
+ */
 PersonList::PersonList()
 : person_count(0), persons(nullptr) // nullpoint
 {
 }
 
+/**
+ * @brief Destroy the Person List:: Person List object
+ * Deletes pointer ref
+ */
 PersonList::~PersonList()
 {
     delete[] persons;
 }
 
+/**
+ * @brief Add new person to the list
+ * 
+ * @param newPerson the Person object to add
+ */
 void PersonList::addPerson(Person newPerson)
 {
     Person *p = nullptr;
@@ -29,6 +42,11 @@ void PersonList::addPerson(Person newPerson)
     persons = p; // assign new array to old array
 }
 
+/**
+ * @brief Uses the Person::write() function to print the list of people
+ * 
+ * @param os the ostream to print to
+ */
 void PersonList::writeAndFix(ostream &os)
 {
     os << setprecision(2) << fixed;
@@ -38,6 +56,11 @@ void PersonList::writeAndFix(ostream &os)
     }
 }
 
+/**
+ * @brief Gets the sum of all the people's owed amounts
+ * 
+ * @return double the sum amount owed
+ */
 double PersonList::sumOwed()
 {
     double sum = 0.0;
@@ -47,6 +70,11 @@ double PersonList::sumOwed()
     return sum;
 }
 
+/**
+ * @brief Gets the sum paid by all the people
+ * 
+ * @return double sum paid
+ */
 double PersonList::sumPayed()
 {
     double sum = 0.0;
@@ -56,6 +84,13 @@ double PersonList::sumPayed()
     return sum;
 }
 
+/**
+ * @brief Checks if a person of given name exists in PersonList
+ * 
+ * @param name the name to check for
+ * @return true if person exists
+ * @return false if person does not exist
+ */
 bool PersonList::personExists(const string &name)
 {
     for (int i = 0; i < person_count; i++) {
@@ -66,13 +101,18 @@ bool PersonList::personExists(const string &name)
     return false;
 }
 
+/**
+ * @brief Ensures deep copy of PersonList
+ * 
+ * @param other the other PersonList to copy
+ */
 PersonList & PersonList::operator = (const PersonList &other)
 {
     if (this != &other) {
-        delete[] persons;
+        delete[] persons; // delete old array, no mem leak
         this->person_count = other.person_count;
         for (int i = 0; i < person_count; i++) {
-            this->persons[i] = other.persons[i];
+            this->persons[i] = other.persons[i]; // deep copy array
         }
     }
     return *this;
