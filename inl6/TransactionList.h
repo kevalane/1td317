@@ -10,8 +10,7 @@
 class TransactionList {
 private:
     int transaction_count;
-    Transaction transactions[MAX_TRANSACTIONS];
-    // Transaction *transactions;
+    Transaction *transactions;
 
 public:
     TransactionList();
