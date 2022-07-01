@@ -6,19 +6,12 @@ using namespace std;
 
 Transaction::Transaction() 
 : date(""), type(""), name(""), 
-amount(0.0), number_of_friends(0)
+amount(0.0), number_of_friends(0), friends(nullptr)
 {
-    for (int i = 0 ; i < MAX_PERSONS; i++) {
-        this->friends[i] = "";
-    }
 }
 
 Transaction::~Transaction()
 {
-    delete[] friends;
-}
-
-Transaction::~Transaction() {
     delete[] friends;
 }
 
@@ -35,7 +28,7 @@ int Transaction::getNumberOfFriends() {
 }
 
 bool Transaction::friendExists(const string &name) {
-    for (int i = 0; i < MAX_PERSONS; i++) {
+    for (int i = 0; i < number_of_friends; i++) {
         if (this->friends[i].compare(name) == 0) return true;
     }
     return false;
@@ -52,7 +45,6 @@ bool Transaction::read(istream &is) {
     }
     delete[] friends; // delete old array, no mem leak
     friends = f; // assign new array to old array
-
     return !is.eof();
 }
 
@@ -79,7 +71,7 @@ void Transaction::writeTitle(ostream &os) {
     os << "Lista av kompisar" << endl;
 }
 
-Transaction& Transaction::operator=(const Transaction& t) {
+Transaction& Transaction::operator=( const Transaction& t) {
     if (this != &t) {
         delete[] friends;
         this->date = t.date;
@@ -87,7 +79,7 @@ Transaction& Transaction::operator=(const Transaction& t) {
         this->name = t.name;
         this->amount = t.amount;
         this->number_of_friends = t.number_of_friends;
-        for (int i = 0; i < MAX_PERSONS; i++) {
+        for (int i = 0; i < this->number_of_friends; i++) {
             this->friends[i] = t.friends[i];
         }
     }

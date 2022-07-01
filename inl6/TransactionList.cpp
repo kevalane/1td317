@@ -32,7 +32,9 @@ void TransactionList::write(ostream &os) {
 }
 
 void TransactionList::addTransaction(Transaction &t) {
+    cout << "This is seg fault 1" <<endl; 
     this->transactions[transaction_count] = t;
+    cout << "This is seg fault 2" <<endl; 
     transaction_count++;
 }
 

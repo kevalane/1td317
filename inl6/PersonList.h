@@ -13,7 +13,7 @@ private:
 public:
     PersonList();
     ~PersonList();
-    PersonList & operator = (const PersonList &);
+    PersonList & operator = (const PersonList &other);
     void addPerson(Person newPerson);
     void writeAndFix(std::ostream &os);
     double sumOwed();
