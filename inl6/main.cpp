@@ -11,6 +11,11 @@
 
 using namespace std;
 
+/**
+ * @brief Main program given by faculty.
+ * 
+ * @return int 0 if successful.
+ */
 int main()
 {
   cout << "Startar med att läsa från en fil." << endl;
