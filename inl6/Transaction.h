@@ -15,7 +15,7 @@ private:
 public:
     Transaction();
     ~Transaction();
-    Transaction & operator = (const Transaction &);
+    Transaction& operator=( const Transaction& t);
     std::string getName();
     double getAmount();
     int getNumberOfFriends();
