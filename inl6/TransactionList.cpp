@@ -4,13 +4,22 @@
 
 using namespace std;
 
+/**
+ * @brief Construct a new Transaction List:: Transaction List object
+ * 
+ */
 TransactionList::TransactionList()
 : transaction_count(0), transactions(nullptr)
 {
 }
 
+/**
+ * @brief Destroy the Transaction List:: Transaction List object
+ * 
+ */
 TransactionList::~TransactionList()
 {
+    delete[] transactions;
 }
 
 TransactionList & TransactionList::operator = (const TransactionList &other) {
