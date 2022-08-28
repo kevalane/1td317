@@ -1,6 +1,7 @@
 # MACOS files
 .DS_Store
 *.DS_Store
+*.zip
 
 # VS Code
 .vscode
